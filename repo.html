@@ -1,0 +1,20 @@
+<div>
+   <div>{{error}}</div>
+   <h2>Repository name: {{reposDetails.name}}</h2>
+   <table>
+      <thead>
+         <tr>
+            <th>Login</th>
+            <th>Image</th>
+            <th>Contribution</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr ng-repeat="contributor in contributors | orderBy: repoSortOder">
+            <td>{{contributor.login}}</td>
+            <td> <img ng-src="{{contributor.avatar_url}}" title="{{contributor.login}}" width="80px" /></td>
+            <td>{{contributor.contributions}}</td>
+         </tr>
+      </tbody>
+   </table>
+</div>

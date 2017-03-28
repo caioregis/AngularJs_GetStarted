@@ -1,0 +1,32 @@
+<div>
+  <div>{{error}}</div>
+  <h2>{{user.name}}</h2>
+  <img ng-src="{{user.avatar_url}}" title="{{user.name}}" width="80px" />
+
+  <hr/>
+
+  <select ng-model="repoSortOder">
+    <option value="+name">Name</option>
+    <option value="-stargazers_count">Stars</option>
+    <option value="+language">Language</option>
+  </select>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Stars</th>
+        <th>Language</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="repo in repos | orderBy: repoSortOder">
+        <td><a href="#!/repos/{{user.name}}/{{repo.name}}" target="_blank">{{repo.name}}</a></td>
+        <td>{{repo.stargazers_count | number}} </td>
+        <td>{{repo.language}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <a href="#/main">Back to search</a>
+</div>
